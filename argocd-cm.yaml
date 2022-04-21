@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: argo-poc
+data:
+  configManagementPlugins: |
+    - name: aws-avp
+      generate:
+        command: ["sh", "-c"]
+        args: ["argocd-vault-plugin generate -s vault-config ./"]
