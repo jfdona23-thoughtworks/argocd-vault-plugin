@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
 data:
-  configManagementPlugins: |
-    - name: aws-avp
+  configManagementPlugins: |-
+    - name: argocd-vault-plugin
       generate:
-        command: ["sh", "-c"]
-        args: ["argocd-vault-plugin generate -s vault-config ./"]
+        command: ["argocd-vault-plugin"]
+        args: ["generate", "./"]
